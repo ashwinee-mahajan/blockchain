@@ -1,0 +1,75 @@
+module Main where
+
+
+import Entity
+import CorporationRole
+import TraderRole
+import Offer
+import Shares
+import Asset
+import Daml.Script
+
+-- setup : Script (Optional(ContractId BuyOffer), Optional(ContractId SellOffer))
+setup = script do
+
+  alice <- allocatePartyWithHint "Alice" (PartyIdHint "Alice")
+  bob <- allocatePartyWithHint "Bob" (PartyIdHint "Bob")
+  company1 <- allocatePartyWithHint "company1" (PartyIdHint "company1")
+  exchangeOwner <- allocatePartyWithHint "ExchangeOwner" (PartyIdHint "ExchangeOwner")
+  userAdmin <- allocatePartyWithHint "UserAdmin" (PartyIdHint "UserAdmin")
+
+  submit exchangeOwner do
+    createCmd Entity with
+      trader= alice
+      corporations=[]
+      exchangeOwner=exchangeOwner
+
+
+  aliceAsAtraderRole <- submit exchangeOwner do
+    createCmd TraderRole with
+      trader=alice
+      exchangeOwner=exchangeOwner
+
+  bobAsAtraderRole <- submit exchangeOwner do
+    createCmd TraderRole with
+      trader=bob
+      exchangeOwner=exchangeOwner
+
+  gftAsACorporationRole <- submit exchangeOwner do
+    createCmd CorporationRole with
+      corporation=company1
+      exchangeOwner
+
+  aliceBuyOfferCid <- submit alice do
+    exerciseCmd aliceAsAtraderRole CreateBuyOffer with
+        corporation=company1
+        price= 10.00
+        quantity=20
+        symbol="USD"
+
+  bobBuyOfferCid <- submit bob do
+    exerciseCmd bobAsAtraderRole CreateBuyOffer with
+        corporation= company1
+        price= 10.00
+        quantity=30
+        symbol="USD"
+
+  assetCid <- submit company1 do
+    exerciseCmd gftAsACorporationRole CreateAsset with
+      shares = Shares with
+        issuer = company1
+        owner= company1
+        ticker= "cmp"
+        quantity = 100
+        price=10.00
+        symbol="USD"
+
+  sellOfferCid <- submit company1 do
+    exerciseCmd gftAsACorporationRole CreateSellOffer with
+      assetCid
+      quantity=20
+
+  submit exchangeOwner do
+    exerciseCmd sellOfferCid TransferAssetAndOwnerShip with
+      buyOfferCids = [aliceBuyOfferCid, bobBuyOfferCid]
+

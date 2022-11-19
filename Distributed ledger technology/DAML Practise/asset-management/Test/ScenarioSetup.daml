@@ -1,0 +1,20 @@
+module Test.ScenarioSetup where
+
+import Daml.Script
+
+import Main.Entities
+
+registerParties = script do
+ manager <- allocateParty "assetManager"
+ i1 <- allocateParty "investor1"
+ i2 <- allocateParty "investor2"
+ i3 <- allocateParty "investor3"
+ i4 <- allocateParty "investor4"
+
+ mCid <- submit manager do createCmd AssetManager with assetManager = manager; investors = []
+ (mCid, i1Cid) <- submit manager do exerciseCmd mCid RegisterInvestor with investor = i1
+ (mCid, i2Cid) <- submit manager do exerciseCmd mCid RegisterInvestor with investor = i2
+ (mCid, i3Cid) <- submit manager do exerciseCmd mCid RegisterInvestor with investor = i3
+ (mCid, i4Cid) <- submit manager do exerciseCmd mCid RegisterInvestor with investor = i4
+
+ return ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid))

@@ -1,0 +1,58 @@
+module Offer where
+import Asset 
+import DA.List (head)
+import Shares
+
+template BuyOffer 
+  with 
+    corporation: Party
+    price: Decimal
+    quantity: Int
+    owner: Party
+    exchangeOwner: Party
+    symbol: Text
+  where
+    signatory owner
+    observer exchangeOwner
+
+template SellOffer
+  with
+    assetCid: ContractId Asset
+    quantity: Int
+    exchangeOwner: Party
+    corporation: Party
+  where 
+    signatory corporation 
+    observer exchangeOwner
+
+    controller exchangeOwner
+      can
+        nonconsuming TransferAssetAndOwnerShip: [ContractId Asset]
+          with
+            buyOfferCids: [ContractId BuyOffer]
+              do
+                asset <- fetch assetCid
+                
+                buyOffers <- mapA (\id -> fetch id) buyOfferCids
+                let buyOffersForCorporation = filter (\x -> (x.corporation == asset.shares.issuer) && (asset.shares.price == x.price)) buyOffers
+                
+                forA buyOffersForCorporation (\buyOfferForCorporation -> do
+                  -- let firstBuyOffer = head buyOffersForCorporation
+                  let totalquantity = asset.shares.quantity
+                  let buyOfferQuantity = buyOfferForCorporation.quantity
+                  let remainderQuantity = totalquantity - buyOfferQuantity
+                  let shares = Shares with
+                                  issuer= asset.shares.issuer
+                                  quantity= buyOfferForCorporation.quantity
+                                  owner= buyOfferForCorporation.owner
+                                  ticker = asset.shares.ticker
+                                  price=asset.shares.price
+                                  symbol=asset.shares.symbol
+                  create Asset 
+                      with 
+                        shares 
+                        exchangeOwner   
+
+                  exercise assetCid UpdateAsset with quantityToUpdate = remainderQuantity)
+                
+                

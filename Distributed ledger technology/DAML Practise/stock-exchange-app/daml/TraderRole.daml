@@ -1,0 +1,47 @@
+module TraderRole where
+import Offer
+import Entity 
+template TraderRole
+  with
+    trader: Party
+    exchangeOwner: Party
+  where
+    signatory exchangeOwner
+  
+    controller trader 
+      can
+        nonconsuming CreateBuyOffer: ContractId BuyOffer
+          with
+            price: Decimal
+            quantity: Int
+            corporation: Party
+            symbol: Text
+          do 
+            create BuyOffer 
+              with 
+                owner = trader
+                ..
+
+template TraderRoleRequest 
+  with
+    trader:Party
+    exchangeOwner:Party
+  where
+    ensure trader /=exchangeOwner
+    signatory trader
+    
+    key (exchangeOwner, trader): (Party, Party)
+    maintainer key._2
+
+    controller exchangeOwner 
+      can 
+        GrantRequest: (ContractId Entity, ContractId TraderRole)
+          do  
+            updateEntity <- exerciseByKey @Entity exchangeOwner AddTrader with newTrader = trader
+            
+            traderRole <- create TraderRole with ..
+            return (updateEntity, traderRole)
+        RejectRequest: ()
+          do return ()
+
+      

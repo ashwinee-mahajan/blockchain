@@ -1,0 +1,143 @@
+14:09:22.757 [main] INFO  com.daml.navigator.config.Config$ - Loading SDK config file from /Users/aemj/Desktop/blockchain learning/DAML/stock-exchange-app/daml.yaml 
+14:09:23.221 [da-ui-backend-akka.actor.default-dispatcher-4] INFO  akka.event.slf4j.Slf4jLogger - Slf4jLogger started 
+14:09:23.312 [da-ui-backend-akka.actor.default-dispatcher-7] INFO  c.d.n.store.platform.PlatformStore - Connecting to localhost:6865, using a plaintext connection akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-6, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:23.310UTC
+14:09:23.887 [main] INFO  com.daml.navigator.NavigatorBackend$ - DA UI backend server listening on port 7500 
+14:09:23.905 [da-ui-backend-akka.actor.default-dispatcher-4] INFO  c.d.n.store.platform.PlatformStore - Time service is not implemented akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-6, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:23.905UTC
+14:09:23.908 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.store.platform.PlatformStore - Connected to platform at 'localhost:6865' akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:23.908UTC
+14:09:23.910 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.store.platform.PlatformStore - Starting actor for Alice akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:23.910UTC
+14:09:24.795 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.store.platform.PlatformStore - Starting actor for Bob akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:24.795UTC
+14:09:24.833 [da-ui-backend-akka.actor.default-dispatcher-9] INFO  c.d.n.store.platform.PlatformStore - Starting actor for UserAdmin akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:24.833UTC
+14:09:24.873 [da-ui-backend-akka.actor.default-dispatcher-9] INFO  c.d.n.store.platform.PlatformStore - Starting actor for GFT akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:24.873UTC
+14:09:25.969 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.s.platform.PlatformSubscriber - Successfully loaded packages [c8592902b1ab5c449d547e2d09abe78880cc267085ac194820d2f510d9d1b7d6, 518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c, cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7, 9de3ae0b7b4e753f7ce2a5dcaa8d49ab4b92c4d8a8fb9589b5f8c893fbea5bd1, 6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d, 99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235, e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c, d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97, 6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06, 8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb, 0323a524706f5ab0c24f300e46879f70332debfe5cc405aac1fe958285bc35fa, 108aa371793a39379d09dd6f02b5613e8bf37ec9893a826747545df5318475f1, 86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb, c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd, 733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a, f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78, 3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415, bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f, cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a, 76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f, d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662, 057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba, 38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7, e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b, 40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7, 97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657] akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-16, akkaSource=akka://da-ui-backend/user/$a/party-GFT, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:25.969UTC
+14:09:25.969 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.s.platform.PlatformSubscriber - Successfully loaded packages [c8592902b1ab5c449d547e2d09abe78880cc267085ac194820d2f510d9d1b7d6, 518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c, cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7, 9de3ae0b7b4e753f7ce2a5dcaa8d49ab4b92c4d8a8fb9589b5f8c893fbea5bd1, 6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d, 99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235, e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c, d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97, 6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06, 8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb, 0323a524706f5ab0c24f300e46879f70332debfe5cc405aac1fe958285bc35fa, 108aa371793a39379d09dd6f02b5613e8bf37ec9893a826747545df5318475f1, 86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb, c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd, 733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a, f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78, 3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415, bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f, cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a, 76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f, d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662, 057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba, 38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7, e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b, 40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7, 97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657] akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-9, akkaSource=akka://da-ui-backend/user/$a/party-UserAdmin, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:25.969UTC
+14:09:25.969 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.s.platform.PlatformSubscriber - Successfully loaded packages [c8592902b1ab5c449d547e2d09abe78880cc267085ac194820d2f510d9d1b7d6, 518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c, cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7, 9de3ae0b7b4e753f7ce2a5dcaa8d49ab4b92c4d8a8fb9589b5f8c893fbea5bd1, 6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d, 99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235, e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c, d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97, 6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06, 8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb, 0323a524706f5ab0c24f300e46879f70332debfe5cc405aac1fe958285bc35fa, 108aa371793a39379d09dd6f02b5613e8bf37ec9893a826747545df5318475f1, 86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb, c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd, 733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a, f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78, 3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415, bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f, cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a, 76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f, d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662, 057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba, 38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7, e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b, 40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7, 97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657] akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-7, akkaSource=akka://da-ui-backend/user/$a/party-Alice, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:25.969UTC
+14:09:25.969 [da-ui-backend-akka.actor.default-dispatcher-6] INFO  c.d.n.s.platform.PlatformSubscriber - Successfully loaded packages [c8592902b1ab5c449d547e2d09abe78880cc267085ac194820d2f510d9d1b7d6, 518032f41fd0175461b35ae0c9691e08b4aea55e62915f8360af2cc7a1f2ba6c, cc348d369011362a5190fe96dd1f0dfbc697fdfd10e382b9e9666f0da05961b7, 9de3ae0b7b4e753f7ce2a5dcaa8d49ab4b92c4d8a8fb9589b5f8c893fbea5bd1, 6839a6d3d430c569b2425e9391717b44ca324b88ba621d597778811b2d05031d, 99a2705ed38c1c26cbb8fe7acf36bbf626668e167a33335de932599219e0a235, e22bce619ae24ca3b8e6519281cb5a33b64b3190cc763248b4c3f9ad5087a92c, d58cf9939847921b2aab78eaa7b427dc4c649d25e6bee3c749ace4c3f52f5c97, 6c2c0667393c5f92f1885163068cd31800d2264eb088eb6fc740e11241b2bf06, 8a7806365bbd98d88b4c13832ebfa305f6abaeaf32cfa2b7dd25c4fa489b79fb, 0323a524706f5ab0c24f300e46879f70332debfe5cc405aac1fe958285bc35fa, 108aa371793a39379d09dd6f02b5613e8bf37ec9893a826747545df5318475f1, 86828b9843465f419db1ef8a8ee741d1eef645df02375ebf509cdc8c3ddd16cb, c1f1f00558799eec139fb4f4c76f95fb52fa1837a5dd29600baa1c8ed1bdccfd, 733e38d36a2759688a4b2c4cec69d48e7b55ecc8dedc8067b815926c917a182a, f20de1e4e37b92280264c08bf15eca0be0bc5babd7a7b5e574997f154c00cb78, 3f4deaf145a15cdcfa762c058005e2edb9baa75bb7f95a4f8f6f937378e86415, bfcd37bd6b84768e86e432f5f6c33e25d9e7724a9d42e33875ff74f6348e733f, cb0552debf219cc909f51cbb5c3b41e9981d39f8f645b1f35e2ef5be2e0b858a, 76bf0fd12bd945762a01f8fc5bbcdfa4d0ff20f8762af490f8f41d6237c6524f, d14e08374fc7197d6a0de468c968ae8ba3aadbf9315476fd39071831f5923662, 057eed1fd48c238491b8ea06b9b5bf85a5d4c9275dd3f6183e0e6b01730cc2ba, 38e6274601b21d7202bb995bc5ec147decda5a01b68d57dda422425038772af7, e491352788e56ca4603acc411ffe1a49fefd76ed8b163af86cf5ee5f4c38645b, 40f452260bef3f29dede136108fc08a88d5a5250310281067087da6f0baddff7, 97b883cd8a2b7f49f90d5d39c981cf6e110cf1f1c64427a28a6d58ec88c43657] akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-4, akkaSource=akka://da-ui-backend/user/$a/party-Bob, sourceActorSystem=da-ui-backend, akkaTimestamp=13:09:25.969UTC
+14:10:29.201 [da-ui-backend-akka.actor.default-dispatcher-10] INFO  c.d.n.s.platform.PlatformSubscriber - Command '7dc521495cb4371e' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-5, akkaSource=akka://da-ui-backend/user/$a/party-Alice, sourceActorSystem=da-ui-backend, akkaTimestamp=13:10:29.201UTC
+14:10:31.801 [da-ui-backend-akka.actor.default-dispatcher-12] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'Alice' 
+14:10:47.174 [da-ui-backend-akka.actor.default-dispatcher-13] INFO  c.d.n.s.platform.PlatformSubscriber - Command '54d153c2582d84ca' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-9, akkaSource=akka://da-ui-backend/user/$a/party-GFT, sourceActorSystem=da-ui-backend, akkaTimestamp=13:10:47.174UTC
+14:10:48.323 [da-ui-backend-akka.actor.default-dispatcher-16] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'GFT' 
+14:10:59.652 [da-ui-backend-akka.actor.default-dispatcher-16] INFO  c.d.n.s.platform.PlatformSubscriber - Command 'd2a2c376470233bd' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-10, akkaSource=akka://da-ui-backend/user/$a/party-UserAdmin, sourceActorSystem=da-ui-backend, akkaTimestamp=13:10:59.651UTC
+14:11:21.376 [da-ui-backend-akka.actor.default-dispatcher-14] INFO  c.d.n.s.platform.PlatformSubscriber - Command '135cc1f17bcc22ac' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-7, akkaSource=akka://da-ui-backend/user/$a/party-UserAdmin, sourceActorSystem=da-ui-backend, akkaTimestamp=13:11:21.376UTC
+14:11:23.161 [da-ui-backend-akka.actor.default-dispatcher-10] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'UserAdmin' 
+14:11:50.414 [da-ui-backend-akka.actor.default-dispatcher-14] INFO  c.d.n.s.platform.PlatformSubscriber - Command '88b9fef560bbb99a' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-11, akkaSource=akka://da-ui-backend/user/$a/party-GFT, sourceActorSystem=da-ui-backend, akkaTimestamp=13:11:50.414UTC
+14:11:53.842 [da-ui-backend-akka.actor.default-dispatcher-7] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'GFT' 
+14:12:01.936 [da-ui-backend-akka.actor.default-dispatcher-16] INFO  c.d.n.s.platform.PlatformSubscriber - Command 'b21041934ede193e' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-4, akkaSource=akka://da-ui-backend/user/$a/party-UserAdmin, sourceActorSystem=da-ui-backend, akkaTimestamp=13:12:01.936UTC
+14:12:04.116 [da-ui-backend-akka.actor.default-dispatcher-4] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'UserAdmin' 
+14:12:13.876 [da-ui-backend-akka.actor.default-dispatcher-11] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'Alice' 
+14:12:34.074 [da-ui-backend-akka.actor.default-dispatcher-5] INFO  c.d.n.s.platform.PlatformSubscriber - Command 'bd9e979e755cd742' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-11, akkaSource=akka://da-ui-backend/user/$a/party-Bob, sourceActorSystem=da-ui-backend, akkaTimestamp=13:12:34.074UTC
+14:12:35.952 [da-ui-backend-akka.actor.default-dispatcher-5] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'Bob' 
+14:12:44.035 [da-ui-backend-akka.actor.default-dispatcher-14] INFO  c.d.n.s.platform.PlatformSubscriber - Command '42e50ca72cf852e2' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-10, akkaSource=akka://da-ui-backend/user/$a/party-UserAdmin, sourceActorSystem=da-ui-backend, akkaTimestamp=13:12:44.035UTC
+14:12:45.620 [da-ui-backend-akka.actor.default-dispatcher-11] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'UserAdmin' 
+14:19:20.390 [da-ui-backend-akka.actor.default-dispatcher-5] ERROR akka.actor.ActorSystemImpl - Error during processing of request: 'Daml-LF Party is empty'. Completing with 500 Internal Server Error response. To change default exception handling behavior, provide a custom ExceptionHandler. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-15, akkaSource=akka.actor.ActorSystemImpl(da-ui-backend), sourceActorSystem=da-ui-backend, akkaTimestamp=13:19:20.387UTC
+spray.json.DeserializationException: Daml-LF Party is empty
+	at spray.json.package$.deserializationError(package.scala:23)
+	at com.daml.navigator.json.ApiCodecVerbose$.$anonfun$assertDE$1(ApiCodecVerbose.scala:275)
+	at scala.util.Either.fold(Either.scala:190)
+	at com.daml.navigator.json.ApiCodecVerbose$.assertDE(ApiCodecVerbose.scala:275)
+	at com.daml.navigator.json.ApiCodecVerbose$.jsValueToApiValue(ApiCodecVerbose.scala:156)
+	at com.daml.navigator.json.ApiCodecVerbose$.jsValueToApiRecordField(ApiCodecVerbose.scala:132)
+	at com.daml.navigator.json.ApiCodecVerbose$.$anonfun$jsValueToApiRecord$2(ApiCodecVerbose.scala:189)
+	at scala.collection.immutable.List.map(List.scala:246)
+	at com.daml.navigator.json.ApiCodecVerbose$.jsValueToApiRecord(ApiCodecVerbose.scala:189)
+	at com.daml.navigator.json.ApiCodecVerbose$.jsValueToApiValue(ApiCodecVerbose.scala:138)
+	at com.daml.navigator.json.ApiCodecVerbose$JsonImplicits$ApiValueJsonFormat$.read(ApiCodecVerbose.scala:260)
+	at com.daml.navigator.json.ApiCodecVerbose$JsonImplicits$ApiValueJsonFormat$.read(ApiCodecVerbose.scala:258)
+	at spray.json.JsValue.convertTo(JsValue.scala:33)
+	at com.daml.navigator.graphql.JsonType$.coerceUserJsonInput(JsonType.scala:53)
+	at com.daml.navigator.graphql.JsonType$.$anonfun$newScalarType$2(JsonType.scala:61)
+	at sangria.execution.ValueCoercionHelper.isValidValue(ValueCoercionHelper.scala:408)
+	at sangria.execution.ValueCoercionHelper.isValidValue(ValueCoercionHelper.scala:374)
+	at sangria.execution.ValueCoercionHelper.getVariableValue(ValueCoercionHelper.scala:449)
+	at sangria.execution.ValueCollector.$anonfun$getVariableValues$2(ValueCollector.scala:26)
+	at scala.Option.map(Option.scala:242)
+	at sangria.execution.ValueCollector.$anonfun$getVariableValues$1(ValueCollector.scala:26)
+	at scala.collection.IterableOnceOps.foldLeft(IterableOnce.scala:646)
+	at scala.collection.IterableOnceOps.foldLeft$(IterableOnce.scala:642)
+	at scala.collection.AbstractIterable.foldLeft(Iterable.scala:919)
+	at sangria.execution.ValueCollector.getVariableValues(ValueCollector.scala:23)
+	at sangria.execution.Executor.$anonfun$execute$2(Executor.scala:89)
+	at scala.util.Success.flatMap(Try.scala:258)
+	at sangria.execution.Executor.execute(Executor.scala:88)
+	at sangria.execution.Executor$.execute(Executor.scala:199)
+	at com.daml.navigator.DefaultGraphQLHandler.$anonfun$executeQuery$2(GraphQLHandler.scala:75)
+	at scala.Option.fold(Option.scala:263)
+	at com.daml.navigator.DefaultGraphQLHandler.executeQuery(GraphQLHandler.scala:72)
+	at com.daml.navigator.UIBackend.$anonfun$getRoute$40(UIBackend.scala:193)
+	at akka.http.scaladsl.server.directives.RouteDirectives.$anonfun$complete$1(RouteDirectives.scala:51)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.StandardRoute$$anon$1.apply(StandardRoute.scala:19)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.FutureDirectives.$anonfun$onComplete$3(FutureDirectives.scala:37)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$1(FastFuture.scala:36)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:36)
+	at akka.http.scaladsl.server.directives.FutureDirectives.$anonfun$onComplete$2(FutureDirectives.scala:37)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.FutureDirectives.$anonfun$onComplete$3(FutureDirectives.scala:37)
+	at akka.http.scaladsl.util.FastFuture$.$anonfun$transformWith$1(FastFuture.scala:36)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:54)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:36)
+	at akka.http.scaladsl.server.directives.FutureDirectives.$anonfun$onComplete$2(FutureDirectives.scala:37)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResult$2(BasicDirectives.scala:68)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRequestContext$2(BasicDirectives.scala:45)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRequestContext$2(BasicDirectives.scala:45)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$2(RouteConcatenation.scala:47)
+	at akka.http.scaladsl.util.FastFuture$.strictTransform$1(FastFuture.scala:40)
+	at akka.http.scaladsl.util.FastFuture$.transformWith$extension(FastFuture.scala:44)
+	at akka.http.scaladsl.util.FastFuture$.flatMap$extension(FastFuture.scala:25)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.RouteConcatenation$RouteWithConcatenation.$anonfun$$tilde$1(RouteConcatenation.scala:44)
+	at akka.http.scaladsl.server.Directive.$anonfun$recover$4(Directive.scala:125)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.Directive.$anonfun$recover$2(Directive.scala:125)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$mapRouteResultWith$2(BasicDirectives.scala:74)
+	at akka.http.scaladsl.server.directives.BasicDirectives.$anonfun$textract$2(BasicDirectives.scala:161)
+	at akka.http.scaladsl.server.directives.ExecutionDirectives.$anonfun$handleExceptions$2(ExecutionDirectives.scala:32)
+	at akka.http.scaladsl.server.Route$.$anonfun$createAsyncHandler$1(Route.scala:110)
+	at akka.stream.impl.fusing.MapAsyncUnordered$$anon$31.onPush(Ops.scala:1404)
+	at akka.stream.impl.fusing.GraphInterpreter.processPush(GraphInterpreter.scala:541)
+	at akka.stream.impl.fusing.GraphInterpreter.processEvent(GraphInterpreter.scala:495)
+	at akka.stream.impl.fusing.GraphInterpreter.execute(GraphInterpreter.scala:390)
+	at akka.stream.impl.fusing.GraphInterpreterShell.runBatch(ActorGraphInterpreter.scala:625)
+	at akka.stream.impl.fusing.GraphInterpreterShell$AsyncInput.execute(ActorGraphInterpreter.scala:502)
+	at akka.stream.impl.fusing.GraphInterpreterShell.processEvent(ActorGraphInterpreter.scala:600)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.akka$stream$impl$fusing$ActorGraphInterpreter$$processEvent(ActorGraphInterpreter.scala:773)
+	at akka.stream.impl.fusing.ActorGraphInterpreter$$anonfun$receive$1.applyOrElse(ActorGraphInterpreter.scala:788)
+	at akka.actor.Actor.aroundReceive(Actor.scala:537)
+	at akka.actor.Actor.aroundReceive$(Actor.scala:535)
+	at akka.stream.impl.fusing.ActorGraphInterpreter.aroundReceive(ActorGraphInterpreter.scala:691)
+	at akka.actor.ActorCell.receiveMessage(ActorCell.scala:577)
+	at akka.actor.ActorCell.invoke(ActorCell.scala:547)
+	at akka.dispatch.Mailbox.processMailbox(Mailbox.scala:270)
+	at akka.dispatch.Mailbox.run(Mailbox.scala:231)
+	at akka.dispatch.Mailbox.exec(Mailbox.scala:243)
+	at java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:289)
+	at java.util.concurrent.ForkJoinPool$WorkQueue.runTask(ForkJoinPool.java:1067)
+	at java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1703)
+	at java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:172)
+14:21:20.143 [da-ui-backend-akka.actor.default-dispatcher-12] INFO  c.d.n.s.platform.PlatformSubscriber - Command '3d10cf2397def9f4' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-12, akkaSource=akka://da-ui-backend/user/$a/party-Bob, sourceActorSystem=da-ui-backend, akkaTimestamp=13:21:20.143UTC
+14:23:07.841 [da-ui-backend-akka.actor.default-dispatcher-4] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'Bob' 
+14:23:18.700 [da-ui-backend-akka.actor.default-dispatcher-15] INFO  c.d.n.s.platform.PlatformSubscriber - Command 'c8f6a16bea669c66' completed successfully. akkaAddress=akka://da-ui-backend, sourceThread=da-ui-backend-akka.actor.default-dispatcher-13, akkaSource=akka://da-ui-backend/user/$a/party-GFT, sourceActorSystem=da-ui-backend, akkaTimestamp=13:23:18.700UTC
+14:23:24.865 [da-ui-backend-akka.actor.default-dispatcher-4] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'GFT' 
+14:23:32.627 [da-ui-backend-akka.actor.default-dispatcher-5] INFO  com.daml.navigator.NavigatorBackend$ - Logged out user 'Alice' 
+15:40:20.816 [da-ui-backend-akka.actor.default-dispatcher-7] WARN  c.d.l.c.s.c.CommandTrackerFlow$ - Completion Stream failed with an error. Trying to recover in 1 second... 
+15:40:20.816 [da-ui-backend-akka.actor.default-dispatcher-13] WARN  c.d.l.c.s.c.CommandTrackerFlow$ - Completion Stream failed with an error. Trying to recover in 1 second... 
+15:40:20.817 [da-ui-backend-akka.actor.default-dispatcher-14] WARN  c.d.l.c.s.c.CommandTrackerFlow$ - Completion Stream failed with an error. Trying to recover in 1 second... 
+15:40:20.817 [da-ui-backend-akka.actor.default-dispatcher-9] WARN  c.d.l.c.s.c.CommandTrackerFlow$ - Completion Stream failed with an error. Trying to recover in 1 second... 
+15:40:20.831 [da-ui-backend-akka.actor.default-dispatcher-14] WARN  akka.actor.CoordinatedShutdown - Could not addJvmShutdownHook, due to: Shutdown in progress akkaAddress=akka://da-ui-backend, sourceThread=shutdownHook2, akkaSource=CoordinatedShutdown(akka://da-ui-backend), sourceActorSystem=da-ui-backend, akkaTimestamp=14:40:20.830UTC

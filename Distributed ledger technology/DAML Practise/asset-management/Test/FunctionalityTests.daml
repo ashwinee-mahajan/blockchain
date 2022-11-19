@@ -1,0 +1,60 @@
+module Test.FunctionalityTests where
+
+import Daml.Script
+
+import Test.ScenarioSetup
+
+import Main.Data
+import Main.Entities
+import Main.Assets
+
+createFund = script do
+ ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid)) <- registerParties
+
+ let fundDetails = FundDetails with
+      id = "001"
+      name = "fund1"
+      manager = "Bob"
+      status = OPEN
+      couponFrequency = 1
+      description = "Test Fund"
+      interest = 0.03
+      yieldToMaturity = 0.035
+      subscriptionCost = 100000
+      currency = "USD"
+      tokens = 5
+      subStartTimestamp = 1
+      subEndTimestamp = 99999999999
+      latestUpdateTimestamp = 1
+
+ fundCid <- submit manager do exerciseCmd mCid RegisterFund with fundDetails
+
+ return ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid), fundCid)
+
+generateCoupons = script do
+ ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid), fundCid) <- createFund
+
+ cashRequestCid1 <- submit i1 do exerciseCmd i1Cid RequestCash with amount = 1000000.0; currency = "USD"
+ cashRequestCid2 <- submit i2 do exerciseCmd i2Cid RequestCash with amount = 1000000.0; currency = "USD"
+
+ submit manager do exerciseCmd cashRequestCid1 AcceptRequest with timestamp = 2
+ submit manager do exerciseCmd cashRequestCid2 AcceptRequest with timestamp = 2
+
+ (fundCid, token) <- submit i1 do exerciseCmd i1Cid Subscribe with subscribeAmount = 1; fundId = "001"; timestamp = 3
+ (fundCid, token) <- submit i2 do exerciseCmd i2Cid Subscribe with subscribeAmount = 1; fundId = "001"; timestamp = 4
+ (fundCid, token) <- submit i1 do exerciseCmd i1Cid Subscribe with subscribeAmount = 1; fundId = "001"; timestamp = 5
+
+ submit manager do exerciseCmd mCid GenerateCoupon with fundId = "001"; timestamp = 6
+
+ return ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid), fundCid) 
+
+sellTokens = script do
+ ((manager, mCid), (i1, i1Cid), (i2, i2Cid), (i3, i3Cid), (i4, i4Cid), fundCid) <- generateCoupons
+
+ cashRequestCid3 <- submit i3 do exerciseCmd i3Cid RequestCash with amount = 1000000.0; currency = "USD"
+ submit manager do exerciseCmd cashRequestCid3 AcceptRequest with timestamp = 7
+
+ sellOfferCid <- submit i1 do exerciseCmd i1Cid CreateSellOffer with fundId = "001"; sellAmount = 2; currency = "USD"; pricePerToken = 10.0; timestamp = 8
+ buyOfferCid <- submit i3 do exerciseCmd i3Cid CreateBuyOffer with fundId = "001"; buyAmount = 1; currency = "USD"; pricePerToken = 10.0; timestamp = 9
+
+ submit manager do exerciseCmd mCid Match with buyer = i3; seller = i1; fundId = "001"; timestamp = 10

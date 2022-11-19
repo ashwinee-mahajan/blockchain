@@ -1,0 +1,19 @@
+module Asset where
+import Shares
+
+template Asset
+  with
+    shares: Shares
+    exchangeOwner:Party
+  where
+    signatory exchangeOwner, shares.issuer
+
+    controller exchangeOwner 
+      can  
+        UpdateAsset: ContractId Asset
+          with 
+            quantityToUpdate: Int
+          do
+            create this 
+              with 
+                shares.quantity = quantityToUpdate 

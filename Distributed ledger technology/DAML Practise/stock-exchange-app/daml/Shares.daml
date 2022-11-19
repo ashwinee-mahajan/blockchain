@@ -1,0 +1,13 @@
+module Shares where
+
+template Shares
+  with
+    issuer: Party
+    owner: Party
+    ticker: Text
+    quantity: Int
+    price: Decimal
+    symbol: Text
+  where
+    signatory  issuer, owner
+    

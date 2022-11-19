@@ -1,0 +1,68 @@
+module Main.Assets where
+
+import DA.Optional
+
+import Main.Utils
+
+template CashRequest
+ with
+  assetManager: Party
+  investor: Party
+  amount: Decimal
+  currency: Text
+ where
+  signatory investor
+  observer assetManager
+
+  key (assetManager, investor, currency): (Party, Party, Text)
+  maintainer key._2
+
+  choice CancelRequest: ()
+   controller investor
+   do return ()
+  
+  choice AcceptRequest: ContractId Cash
+   with timestamp: Int
+   controller assetManager
+   do
+    let uniqueId = createUniqueIdentifier [(show investor), currency]
+    cashCid <- lookupByKey @Cash (assetManager, uniqueId)
+    case cashCid of
+     None -> create Cash with assetManager; investor; id = uniqueId; amount; currency; latestUpdateTimestamp = timestamp
+     Some cashCid -> do
+      cash <- fetch cashCid
+      archive cashCid
+      create cash with amount = cash.amount + amount
+
+template Cash
+ with
+  assetManager: Party
+  investor: Party
+  id: Text
+  amount: Decimal
+  currency: Text
+  latestUpdateTimestamp: Int
+ where
+  signatory assetManager
+  observer investor
+
+  key (assetManager, id): (Party, Text)
+  maintainer key._1
+
+transferCash(assetManager: Party, from: Party, to: Party, amount: Decimal, currency: Text, timestamp: Int) = do
+ let delCashId = createUniqueIdentifier [(show from), currency]
+ delCashCid <- lookupByKey @Cash (assetManager, delCashId)
+ assertMsg "Cash not found" (isSome delCashCid)
+ delCash <- fetch (fromSome delCashCid)
+ assertMsg "Not enough Cash" (delCash.amount >= amount)
+ archive (fromSome delCashCid)
+ create delCash with amount = delCash.amount - amount; latestUpdateTimestamp = timestamp
+
+ let recCashId = createUniqueIdentifier [(show to), currency]
+ recCashCid <- lookupByKey @Cash (assetManager, recCashId)
+ case recCashCid of
+  None -> create Cash with assetManager; investor = to; id = recCashId; amount; currency; latestUpdateTimestamp = timestamp
+  Some recCashCid -> do
+   recCash <- fetch recCashCid
+   archive recCashCid
+   create recCash with amount = recCash.amount + amount; latestUpdateTimestamp = timestamp

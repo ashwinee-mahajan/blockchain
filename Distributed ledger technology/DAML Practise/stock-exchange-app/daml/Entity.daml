@@ -1,0 +1,32 @@
+module Entity where
+
+type EntityCid = ContractId Entity
+
+template Entity
+  with
+    trader: Party
+    corporations:[Party]
+    exchangeOwner: Party
+  where
+    signatory exchangeOwner
+    observer trader
+
+    key exchangeOwner : Party
+    maintainer key
+
+    controller exchangeOwner
+      can
+        AddCorporations: EntityCid
+          with 
+            newCorporation: Party
+          do
+            assert (newCorporation `notElem` corporations)
+            create this with
+              corporations = newCorporation :: corporations
+
+        AddTrader: EntityCid
+          with 
+            newTrader: Party
+          do
+            create this with
+              trader = newTrader

@@ -1,0 +1,87 @@
+module Main.Token where
+
+import DA.Optional
+
+import Main.Utils
+
+template Token
+ with
+  assetManager: Party
+  investor: Party
+  id: Text
+  fundId: Text
+  tokens: Int
+  latestUpdateTimestamp: Int
+ where
+  signatory assetManager
+  observer investor
+
+  key (assetManager, id): (Party, Text)
+  maintainer key._1
+  
+template SellOffer
+ with
+  assetManager: Party
+  seller: Party
+  fundId: Text
+  sellAmount: Int
+  pricePerToken: Decimal
+  currency: Text
+  latestUpdateTimestamp: Int
+ where
+  signatory assetManager
+  observer seller
+
+  key (assetManager, seller, fundId): (Party, Party, Text)
+  maintainer key._1
+
+template BuyOffer
+ with
+  assetManager: Party
+  buyer: Party
+  fundId: Text
+  buyAmount: Int
+  pricePerToken: Decimal
+  currency: Text
+  latestUpdateTimestamp: Int
+ where
+  signatory assetManager
+  observer buyer
+
+  key (assetManager, buyer, fundId): (Party, Party, Text)
+  maintainer key._1
+
+updateOffers(buyOfferCid: ContractId BuyOffer, sellOfferCid: ContractId SellOffer, tokensSold: Int, timestamp: Int) = do
+ buyOffer <- fetch buyOfferCid
+ if (buyOffer.buyAmount > tokensSold)
+ then do
+  archive buyOfferCid
+  create buyOffer with buyAmount = buyOffer.buyAmount - tokensSold; latestUpdateTimestamp = timestamp
+  return ()
+ else do archive buyOfferCid
+
+ sellOffer <- fetch sellOfferCid
+ if (sellOffer.sellAmount > tokensSold)
+ then do
+  archive sellOfferCid
+  create sellOffer with sellAmount = sellOffer.sellAmount - tokensSold; latestUpdateTimestamp = timestamp
+  return ()
+ else do archive sellOfferCid
+
+transferTokens(assetManager: Party, from: Party, to: Party, fundId: Text, amount: Int, timestamp: Int) = do
+ let delTokenId = createUniqueIdentifier [(show from), fundId]
+ delTokensCid <- lookupByKey @Token (assetManager, delTokenId)
+ assertMsg "Tokens not found" (isSome delTokensCid)
+ delTokens <- fetch (fromSome delTokensCid)
+ assertMsg "Not enough Tokens" (delTokens.tokens >= amount)
+ archive (fromSome delTokensCid)
+ create delTokens with tokens = delTokens.tokens - amount; latestUpdateTimestamp = timestamp
+
+ let recTokenId = createUniqueIdentifier [(show to), fundId]
+ recTokensCid <- lookupByKey @Token (assetManager, recTokenId)
+ case recTokensCid of
+  None -> do create Token with assetManager; investor = to; id = recTokenId; fundId; tokens = amount; latestUpdateTimestamp = timestamp
+  Some recTokensCid -> do
+   recTokens <- fetch recTokensCid
+   archive recTokensCid
+   create recTokens with tokens = recTokens.tokens + amount; latestUpdateTimestamp = timestamp

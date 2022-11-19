@@ -1,0 +1,21 @@
+module Main.Data where
+
+data FundStatus = OPEN | CLOSED deriving(Eq, Show)
+
+data FundDetails = FundDetails
+ with
+  id: Text
+  name: Text
+  manager: Text
+  couponFrequency: Int
+  description: Text
+  interest: Decimal
+  yieldToMaturity: Decimal
+  subscriptionCost: Int
+  subStartTimestamp: Int
+  subEndTimestamp: Int
+  status: FundStatus
+  currency: Text
+  tokens: Int
+  latestUpdateTimestamp: Int
+ deriving(Eq, Show)

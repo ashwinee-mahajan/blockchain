@@ -1,0 +1,53 @@
+module CorporationRole where
+
+import Shares
+import Asset
+import Entity
+import Offer
+
+template CorporationRole
+  with
+    corporation: Party
+    exchangeOwner: Party
+  where
+    signatory exchangeOwner
+  
+    controller corporation
+      can
+        nonconsuming CreateAsset: ContractId Asset
+          with
+            shares: Shares
+          do
+            create Asset 
+              with 
+                shares 
+                exchangeOwner
+
+        nonconsuming CreateSellOffer: ContractId SellOffer
+          with
+            assetCid: ContractId Asset
+            quantity: Int
+          do
+            asset <- fetch assetCid
+            assert (quantity <= asset.shares.quantity)
+            create SellOffer with  ..
+
+template CorporationRoleRequest 
+  with
+    corporation:Party
+    exchangeOwner:Party
+  where
+    ensure corporation /=exchangeOwner
+    signatory corporation
+    
+    controller exchangeOwner 
+      can 
+        GrantCorporationRoleRequest: (ContractId Entity, ContractId CorporationRole)
+          do  
+            updateEntity <- exerciseByKey @Entity exchangeOwner AddCorporations with newCorporation = corporation
+            corporationRole <- create CorporationRole with ..
+            return (updateEntity, corporationRole)
+        RejectCorporationRoleRequest: ()
+          do return ()
+
+      
