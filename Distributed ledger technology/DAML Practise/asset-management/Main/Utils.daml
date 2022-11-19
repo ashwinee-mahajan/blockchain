@@ -1,6 +1,0 @@
-module Main.Utils where
-
-import DA.Text
-
-createUniqueIdentifier: [Text] -> Text
-createUniqueIdentifier fields  = (sha256 . implode) fields
